@@ -204,4 +204,21 @@ function createBookInstances(cb) {
         ],
         // Optional callback
         cb);
+        async.series([
+          createGenreAuthors,
+          createBooks,
+          createBookInstances
+      ],
+      // Optional callback
+      function(err, results) {
+          if (err) {
+              console.log('FINAL ERR: '+err);
+          }
+          else {
+              console.log('BOOKInstances: '+bookinstances);
+              
+          }
+          // All done, disconnect from database
+          mongoose.connection.close();
+      });
 }

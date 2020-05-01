@@ -8,6 +8,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog');
+var compression = require('compression');
+var helmet = require('helmet');
 var app = express();
 dotenv.config({path: '.env'});
 var mongoose = require('mongoose');
